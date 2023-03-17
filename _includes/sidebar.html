@@ -1,18 +1,106 @@
-<nav aria-label="Main menu" data-menu class="z-40 bg-white text-base hidden md:block fixed top-0 pt-36 pb-16 pl-0.5 w-[calc(100%-1rem)] md:w-60 h-full max-h-screen md:text-[13px] text-navy docs-left-sidebar overflow-y-auto leading-5">
-   <dl class=leading-5>
-    {% for section in site.data.toc %}
+<!--
+  The Side Bar
+-->
 
-        {% capture sectionUrl %} 
-          {{ section.url | replace: "/", "" }} 
-        {% endcapture %}
-        {% capture pageUrl %} 
-          {{ page.url | replace: "/", "" }} 
-        {% endcapture %}
-      <dt {% if forloop.first %}class="flex sm:justify-center"{% endif %}> <a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="flex items-center text-sm font-semibold hover:text-violet-600 transition-colors pb-1 -ml-0.5 mb-1 active"> {{ section.title }} </a></dt>
+<div id="sidebar" class="d-flex flex-column align-items-end">
+  <div class="profile-wrapper text-center">
+    <div id="avatar">
+      <a href="{{ '/' | relative_url }}" class="mx-auto">
+        {% if site.avatar != empty and site.avatar %}
+          {% capture avatar_url %}
+            {% if site.avatar contains '://' %}
+              {{ site.avatar }}
+            {% elsif site.img_cdn != empty and site.img_cdn %}
+              {{ site.avatar | prepend: site.img_cdn }}
+            {% else %}
+              {{ site.avatar | relative_url }}
+            {% endif %}
+          {% endcapture %}
+          <img src="{{ avatar_url | strip }}" alt="avatar" onerror="this.style.display='none'">
+        {% endif %}
+      </a>
+    </div>
 
-        {% if section.links %}
-      <dd {% if forloop.last %}class="border-l"{% else %}class="mb-8 border-l"{% endif %} id="{{ section.title | slugify }}">{% for entry in section.links %}
-          <a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="flex hover:text-violet-600 transition-colors py-1 border-l-[3px] pl-4 -ml-0.5 border-transparent hover:border-violet-500">{{ entry.title }}</a>{% endfor %}
-        </dd>{% endif %}{% endfor %}
-   </dl>
-</nav>
+    <div class="site-title">
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    </div>
+    <div class="site-subtitle font-italic">{{ site.tagline }}</div>
+
+  </div><!-- .profile-wrapper -->
+
+  <ul class="w-100">
+
+    <!-- home -->
+    <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
+      <a href="{{ '/' | relative_url }}" class="nav-link">
+        <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i>
+        <span>{{ site.data.locales[site.lang].tabs.home | upcase }}</span>
+      </a>
+    </li>
+    <!-- the real tabs -->
+    {% for tab in site.tabs %}
+    <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+      <a href="{{ tab.url | relative_url }}" class="nav-link">
+        <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i>
+        {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+
+        <span>{{ site.data.locales[site.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+      </a>
+    </li> <!-- .nav-item -->
+    {% endfor %}
+
+  </ul> <!-- ul.nav.flex-column -->
+
+  <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center">
+
+    {% unless site.theme_mode %}
+      <button class="mode-toggle btn" aria-label="Switch Mode">
+        <i class="fas fa-adjust"></i>
+      </button>
+
+      {% if site.data.contact.size > 0 %}
+        <span class="icon-border"></span>
+      {% endif %}
+    {% endunless %}
+
+    {% for entry in site.data.contact %}
+      {% case entry.type %}
+        {% when 'github', 'twitter' %}
+          {%- capture url -%}
+            https://{{ entry.type }}.com/{{ site[entry.type].username }}
+          {%- endcapture -%}
+        {% when 'email' %}
+          {% assign email = site.social.email | split: '@' %}
+          {%- capture url -%}
+            javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
+          {%- endcapture -%}
+        {% when 'rss' %}
+          {% assign url = '/feed.xml' | relative_url %}
+        {% else %}
+          {% assign url = entry.url %}
+      {% endcase %}
+
+      {% if url %}
+      <a href="{{ url }}" aria-label="{{ entry.type }}"
+        {% assign link_types = '' %}
+
+        {% unless entry.noblank %}
+          target="_blank"
+          {% assign link_types = 'noopener noreferrer' %}
+        {% endunless %}
+
+        {% if entry.type == 'mastodon' %}
+          {% assign link_types = link_types | append: ' me' | strip %}
+        {% endif %}
+
+        {% unless link_types == empty %}rel="{{ link_types }}"{% endunless %}>
+
+        <i class="{{ entry.icon }}"></i>
+      </a>
+      {% endif %}
+
+    {% endfor %}
+
+  </div> <!-- .sidebar-bottom -->
+
+</div><!-- #sidebar -->

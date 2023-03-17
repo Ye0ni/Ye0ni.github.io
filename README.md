@@ -1,102 +1,97 @@
-# Tailwind (tw) Jekyll
+<div align="center">
 
-![assets/img/tw-jekyll.png](assets/img/tw-jekyll.png)
+  # Chirpy Jekyll Theme
 
-⭐️ [Documentation Demo](https://vsoch.github.io/tw-jekyll/) ⭐️
+  A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
-This is a [starter template](https://vsoch.github.com/tw-jekyll/) for a Tailwind jekyll theme, based
-on [these docs](https://github.com/superfly/docs) that are based on [Tailwind css](https://tailwindcss.com/docs/installation),
-however everything has been modified to work on GitHub pages (using Jekyll). If you don't need
-native deployment on GitHub pages, then please consider checking out Tailwind. 
-The original [Apache License](LICENSE) is included. I (@vsoch) have extended it to include:
+  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)](https://rubygems.org/gems/jekyll-theme-chirpy)
+  [![CI](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml/badge.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml)
+  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)](https://www.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cotes2020/jekyll-theme-chirpy&amp;utm_campaign=Badge_Grade)
+  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
+  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
 
-- includes for callouts and badges
-- rainbow buttons
-- colored tags (with a tags page) for posts and articles
-- GitHub interaction buttons to edit, open an issue, or ask a question
-- customization of colors and minimal style
-- CircleCI preview
+  [**Live Demo →**][demo]
 
-And let me know if you'd like to add anything else, or just open a PR and contribute! 🔥️
+  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
 
-## Usage
+</div>
 
-### 1. Get the code
+## Features
 
-You can clone the repository right to where you want to host the docs:
+<details>
+  <summary>
+    <i>Click to check out the features</i>
+  </summary>
+  <p>
 
-```bash
-git clone https://github.com/vsoch/tw-jekyll.git docs
-cd docs
-```
+  - Dark/Light Theme Mode
+  - Localized UI language
+  - Pinned Posts
+  - Hierarchical Categories
+  - Trending Tags
+  - Table of Contents
+  - Last Modified Date of Posts
+  - Syntax Highlighting
+  - Mathematical Expressions
+  - Mermaid Diagram & Flowchart
+  - Dark/Light Mode Images
+  - Embed Videos
+  - Disqus/Utterances/Giscus Comments
+  - Search
+  - Atom Feeds
+  - Google Analytics
+  - Page Views Reporting
+  - SEO & Performance Optimization
 
-### 2. Customize
+  </p>
+</details>
 
-To edit configuration values, customize the [_config.yml](_config.yml).
-To add pages, write them into the [pages](pages) folder. 
-You define urls based on the `permalink` attribute in your pages,
-and then add them to the navigation by adding to the content of [_data/toc.myl](_data/toc.yml).
-The top navigation is controlled by [_data/navigation.yml](_data/navigation.yml)
+## Documentation
 
-### 3. Options
+To explore usage, development, and upgrade guide of the project, please refer to
+the [Wiki][wiki].
 
-Most of the configuration values in the [_config.yml](_config.yml) are self explanatory,
-and for more details, see the [getting started page](https://vsoch.github.io/tw-jekyll/docs/getting-started)
-rendered on the site.
+## Contributing
 
-### 4. Serve
+Welcome to report bugs, help improve the code or submit new features.
+For more information, please see the ["Contributing Guidelines"][contribute-guide].
 
-Depending on how you installed jekyll:
+## Credits
 
-```bash
-jekyll serve
-# or
-bundle exec jekyll serve
-```
+This theme is mainly built with [Jekyll][jekyllrb] ecosystem,
+[Bootstrap][bootstrap], [Font Awesome][icons] and some other [wonderful tools][lib].
+The avatar and favicon design come from [Clipart Max][image].
 
-**NOTE:** If the above serve command throws an error saying `require': cannot load such file -- webrick (LoadError)` try to run `bundle add webrick` to automatically add the webrick gem to your Gemfile, or manually add `gem "webrick"` line to the Gemfile and then run the serve command again.
+Thanks to all the [contributors][contributors]. Also, folks who submitted issues
+or unmerged PRs should not be forgotten. Because they reported bugs, shared ideas,
+or inspired me to write more readable documentation.
 
+Last but not least, thanks to [JetBrains][jetbrains] for providing the
+_Open Source Development_ license.
 
-### 5. Run as a container in dev or prod
+## Sponsoring
 
-#### Software Dependencies
+If you would like to sponsor this project, the following options are available.
 
-If you want to run jekyll via a container for development (dev) or production (prod) you can use containers. This approach requires installing [docker-ce](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/). 
+[![Ko-fi](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-ff5f5f?logo=ko-fi&logoColor=white)](https://ko-fi.com/coteschung)
+[![Wechat Pay](https://img.shields.io/badge/-Tip%20Me%20on%20WeChat-brightgreen?logo=wechat&logoColor=white)][donation]
+[![Alipay](https://img.shields.io/badge/-Tip%20Me%20on%20Alipay-blue?logo=alipay&logoColor=white)][donation]
 
-#### Customization
+## License
 
-Note that the [docker-compose.yml](docker-compose.yml) file is using the [jekyll/jekyll:3.8](https://hub.docker.com/r/jekyll/jekyll/tags) image. If you want to make your build more reproducible, you can specify a particular version for jekyll (tag). Note that at the development time of writing this documentation, the latest was tag 4.0.0,
-and it [had a bug](https://github.com/fastai/fastpages/issues/267#issuecomment-620612896) that prevented the server from deploying.
+This work is published under [MIT][mit] License.
 
-If you are deploying a container to production, you should remove the line to
-mount the bundles directory to the host in the docker-compose.yml. Change:
+<!-- ReadMe links -->
 
-```yaml
-    volumes: 
-      - "./:/srv/jekyll"
-      - "./vendor/bundle:/usr/local/bundle"
-      # remove "./vendor/bundle:/usr/local/bundle" volume when deploying in production
-```
-
-to:
-
-```yaml
-    volumes: 
-      - "./:/srv/jekyll"
-```
-
-This additional volume is optimal for development so you can cache the bundle dependencies,
-but should be removed for production. 
-
-#### Start Container
-
-Once your docker-compose to download the base container and bring up the server:
-
-```bash
-docker-compose up -d
-```
-
-You can then open your browser to [http://localhost:4000](http://localhost:4000)
-to see the server running.
-
-> Node : changes `baseurl: ""` in _config.yml  when you are running in local and prod according to the requirement.
+[jekyllrb]: https://jekyllrb.com/
+[bootstrap]: https://getbootstrap.com/
+[icons]: https://fontawesome.com/
+[image]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
+[demo]: https://cotes2020.github.io/chirpy-demo/
+[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
+[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/CONTRIBUTING.md
+[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
+[lib]: https://github.com/cotes2020/chirpy-static-assets
+[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+[donation]: https://sponsor.cotes.page/
+[mit]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
