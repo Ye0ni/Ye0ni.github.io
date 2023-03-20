@@ -1,199 +1,122 @@
-# The Site Configuration
+###########################################################
+# Global Configuration (https://jekyllrb.com/docs/configuration/options/)
+###########################################################
+# if you want to force HTTPS, specify the domain without the http at the start
+# set domain: "your_github_user_name.github.io"
+domain: ""
 
-# Import the theme
-theme: jekyll-theme-chirpy
+# your web site url
+# for GitHub Pages, url: "https://your_github_user_name.github.io"
+url: ""
 
-# Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
-# and doesn't have a custom domain.
-baseurl:
+# path to this site
+# if your page is located at https://your_github_user_name.github.io/blog, then set baseurl: "/blog"
+baseurl: ""
 
-# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
-# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
-# otherwise, the layout language will use the default value of 'en'.
-lang: en
+# please use TZ database name column on the list table
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+#timezone: ""
 
-# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
-
-# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-# ↓ --------------------------
-
-title: Test iJu
-
-tagline: 한글 가독성 테스트
-
-description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
-
-# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://ye0ni.github.io'
-
-github:
-  username: Ye0ni # change to your github username
-
-twitter:
-  username: 없오오 # change to your twitter username
-
-social:
-  # Change to your full name.
-  # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: 이주연
-  email: dlwndus5319@naver.com # change to your email address
-  links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/Ye0ni # change to your github homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
-
-google_site_verification: # fill in to your verification string
-
-# ↑ --------------------------
-# The end of `jekyll-seo-tag` settings
-
-google_analytics:
-  id: # fill in your Google Analytics ID
-  # Google Analytics pageviews report settings
-  pv:
-    proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
-    cache_path: # the local PV cache data, friendly to visitors from GFW region
-
-# Prefer color scheme setting.
-#
-# Note: Keep empty will follow the system prefer color by default,
-# and there will be a toggle to switch the theme between dark and light
-# on the bottom left of the sidebar.
-#
-# Available options:
-#
-#     light  - Use the light color scheme
-#     dark   - Use the dark color scheme
-#
-theme_mode: dark # [light|dark]
-
-# The CDN endpoint for images.
-# Notice that once it is assigned, the CDN url
-# will be added to all image (site avatar & posts' images) paths starting with '/'
-#
-# e.g. 'https://cdn.com'
-img_cdn: "https://chirpy-img.netlify.app"
-
-# the avatar on sidebar, support local or CORS resources
-avatar: "/commons/avatar.jpg"
-
-# boolean type, the global switch for TOC in posts.
-toc: true
-
-comments:
-  active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
-  # The active options are as follows:
-  disqus:
-    shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-  # utterances settings › https://utteranc.es/
-  utterances:
-    repo: # <gh-username>/<repo>
-    issue_term: # < url | pathname | title | ...>
-  # Giscus options › https://giscus.app
-  giscus:
-    repo: # <gh-username>/<repo>
-    repo_id:
-    category:
-    category_id:
-    mapping: # optional, default to 'pathname'
-    input_position: # optional, default to 'bottom'
-    lang: # optional, default to the value of `site.lang`
-    reactions_enabled: # optional, default to the value of `1`
-
-# Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
-assets:
-  self_host:
-    enabled: # boolean, keep empty means false
-    # specify the Jekyll environment, empty means both
-    # only works if `assets.self_host.enabled` is 'true'
-    env: # [development|production]
-
-pwa:
-  enabled: true # the option for PWA feature
-
-paginate: 10
-
-# ------------ The following options are not recommended to be modified ------------------
-
-kramdown:
-  syntax_highlighter: rouge
-  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: highlight
-    # default_lang: console
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
-
-collections:
-  tabs:
-    output: true
-    sort_by: order
-
+###########################################################
+# Front Matter Defaults (https://jekyllrb.com/docs/configuration/front-matter-defaults/)
+###########################################################
 defaults:
+  # for posts
   - scope:
-      path: "" # An empty string here means all files in the project
-      type: posts
+      # to separate language posts folders
+      path: "_posts"
     values:
-      layout: post
-      comments: true # Enable comments in posts.
-      toc: true # Display TOC column in posts.
-      # DO NOT modify the following parameter unless you are confident enough
-      # to update the code of all other post links in this project.
-      permalink: /posts/:title/
-  - scope:
-      path: _drafts
-    values:
-      comments: false
-  - scope:
-      path: ""
-      type: tabs # see `site.collections`
-    values:
-      layout: page
-      permalink: /:title/
-  - scope:
-      path: assets/img/favicons
-    values:
-      swcache: true
-  - scope:
-      path: assets/js/dist
-    values:
-      swcache: true
+      layout: "post"
+      permalink: /posts/:path
 
-sass:
-  style: compressed
+  # for multilingual posts
+  - scope:
+      # to separate language posts folders
+      path: "*/_posts"
+    values:
+      hidden: true
+      layout: "post"
+      permalink: /:path
 
+  # example: enable setting for all pages. You may still need to enable some setting from _data/conf/posts.yml or _data/conf/main.yml
+  # - scope:
+  #     # an empty string here means all files in the project
+  #     path: ""
+  #   values:
+  #     image_viewer_on: true
+  #     image_lazy_loader_on: true
+
+###########################################################
+# Markdown Options (https://jekyllrb.com/docs/configuration/markdown/)
+# Configuring Jekyll in your GitHub Pages site (https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
+###########################################################
+# This is default for GitHub Pages sites and cannot be changed.
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  # This is default for GitHub Pages sites and cannot be changed.
+  syntax_highlighter: rouge
+
+###########################################################
+# Plugins (Plugins supported by GitHub Pages https://pages.github.com/versions/)
+###########################################################
+plugins:
+  - jekyll-paginate
+  - jekyll-redirect-from
+
+# since GitHub Pages runs jekyll with "--safe" flag, we need to add supported plugins in here. (only github supported plugins are allowed)
+whitelist:
+  - jekyll-paginate
+  - jekyll-redirect-from
+
+###########################################################
+# jekyll-paginate (https://jekyllrb.com/docs/pagination/)
+###########################################################
+paginate_path: "/tabs/blog/:num"
+# number of post per page
+# make sure this matches with post_query_paginator_post_per_page in _data/conf/posts.yml
+paginate: 5
+
+###########################################################
+# jekyll-redirect-from (https://github.com/jekyll/jekyll-redirect-from)
+###########################################################
+redirect_from:
+  # Disabling generation of redirects.json
+  json: false
+
+###########################################################
+# html compression (https://jch.penibelst.de)
+###########################################################
 compress_html:
   clippings: all
   comments: all
-  endings: all
+  #endings: all
   profile: false
   blanklines: false
   ignore:
+    # disable this feature for development env.
     envs: [development]
 
-exclude:
-  - "*.gem"
-  - "*.gemspec"
-  - tools
-  - README.md
-  - CHANGELOG.md
-  - LICENSE
-  - rollup.config.js
-  - node_modules
-  - package*.json
+###########################################################
+# js compression (for removing comments(/**/only), line breaks and spaces)
+# for debugging js files, simply set linebreak_and_space: false (in production env, this will be enabled automatically)
+# for more info about environments (https://jekyllrb.com/docs/configuration/environments/)
+###########################################################
+compress_js:
+  # enable or disable line breaks and space removal feature for development env.
+  linebreak_and_space: false
+  # disable this feature entirely for development or production env.
+  #ignore: development
 
-jekyll-archives:
-  enabled: [categories, tags]
-  layouts:
-    category: category
-    tag: tag
-  permalinks:
-    tag: /tags/:name/
-    category: /categories/:name/
+###########################################################
+# Sass (https://jekyllrb.com/docs/assets/)
+###########################################################
+sass:
+  sass_dir: assets/_scss
+  # enable css compression
+  style: compressed
+
+###########################################################
+# Exclude these files or folders from production site
+###########################################################
+exclude: ["Gemfile*", "vendor", ".github", ".vscode", "README*", "LICENSE", "docs"]

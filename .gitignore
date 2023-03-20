@@ -1,22 +1,21 @@
-# Bundler cache
-.bundle
-vendor
+# this will handle to macos hidden folders
+# ignore all starts with .* except .git and so on
+.*
+!.git*
+!.editorconfig
+
+# jekyll Cache
+_site
+.sass-cache
+.jekyll-metadata
 Gemfile.lock
 
-# Jekyll cache
-.jekyll-cache
-_site
+# OS generated
+ehthumbs.db
+Thumbs.db
 
-# RubyGems
-*.gem
+# diff files
+*.bak
 
-# NPM dependencies
-node_modules
-package-lock.json
-
-# IDE configurations
-.idea
-.vscode
-
-# Misc
-assets/js/dist
+# updating Gemfile automatically using github actions
+vendor

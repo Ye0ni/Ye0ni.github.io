@@ -1,34 +1,34 @@
-## Description
+#### About pull request
+- To get more insight, please check the related issue #XXX.
+
+#### What's changed to accomplish [problem / feature] described in issue
+<!-- Please provide a description of the changes proposed in the pull request  -->
+
+Coding rule check is done [yes / no]
 
 <!--
-Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+For beginners
 
-e.g. Fixes #(issue)
+- Please create an issue before creating a pull request. (You will find issue templates which guides you.)
+- Create a reference to your issue using #<issue number>.
+- A description of the changes proposed in the pull request.
+- Check questions and change it [a / b] to [a] or [b]
 -->
-
-## Type of change
 
 <!--
-Please select the desired item checkbox and change it to "[x]", then delete options that are not relevant.
+#### Coding rule check
+
+Please make sure the following rules are followed
+
+1. spaces and line breaks
+    - rule : some code tools change all code syntax. Please make sure no spaces or line breaks have been added or removed unless it is related with the Pull Request
+    - why : reviewing diff of codes gets a lot easier, because reviewers can pay attention to a code review.
+    - rule : please use editor that supports .editorconfig (https://editorconfig.org). This takes care of charset, line endings and indents.
+    - why : reviewing diff of codes gets a lot easier, because reviewers can pay attention to a code review.
+2. comments (for all programming languages)
+    - rule : comments will be written on the top of the code lines, not the end of code line
+    - why : reviewing diff of codes gets a lot easier, because reviewers can pay attention to a code review.
+3. for JavaScript's
+    - rule : use `/* comment */` comments.
+    - why : code compression for JavaScript is not supported if a comment starts with `//`
 -->
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
-
-## How has this been tested
-
-<!--
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
--->
-
-- [ ] I have run `bash ./tools/test` (at the root of the project) locally and passed
-- [ ] I have tested this feature in the browser
-
-### Test Configuration
-
-- Browser type & version:
-- Operating system:
-- Ruby version: <!-- by running: `ruby -v` -->
-- Bundler version: <!-- by running: `bundle -v`-->
-- Jekyll version: <!-- by running: `bundle list | grep " jekyll "` -->
