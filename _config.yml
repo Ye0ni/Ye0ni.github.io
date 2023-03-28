@@ -1,9 +1,9 @@
-title: Minimalistic
+title: Ye0ni
 logo: /assets/img/logo.jpg
-email: person@address.com
-description: Minimalistic is a theme powered by Jekyll.
+email: iju.yeon0316@gmail.com
+description: 놰가 해야 하는 일
 favicon: true
-color-scheme: auto
+color-scheme: dark
 
 plugins:
   - jekyll-sitemap
@@ -13,16 +13,18 @@ plugins:
 platforms:
   - name: GitHub
     icon: <i class="fa-brands fa-github"></i>
-    link: https://github.com/vaibhavvikas
+    link: https://github.com/Ye0ni
   - name: LinkedIn
     icon: <i class="fa-brands fa-linkedin"></i>
     link: https://www.linkedin.com/in/vaibhavvikas
 
 navigation:
-  - name: Readme
-    link: ./index.html
+  - name: HOME🏠
+    link: /index.html
     sublist:
       - name: Image
-        link: ./index.html#small-image
-  - name: Another Page
-    link: ./another-page.html
+        link: .index.html#small-image
+  - name: HTML
+    link: /HTML1.html
+  - name: Certificate🪪
+    link: /another-page.html
