@@ -19,7 +19,7 @@
     {% if author.home %}
       <a href="{{ author_link }}"><h3 class="author__name" itemprop="name">{{ author.name }}</h3></a>
     {% else %}
-      <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
+      <h3 class="author__name" itemprop="name"><span style='background-color: #f6f8fa'>{{ author.name }}</span></h3>
     {% endif %}
     {% if author.bio %}
       <div class="author__bio" itemprop="description">

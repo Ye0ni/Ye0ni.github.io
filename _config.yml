@@ -12,15 +12,15 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "myskin" # "default"  "air", "aqua", "contrast", , "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "neon" # "default"  "air", "aqua", "contrast", , "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "블로그 타이틀"
+title                    : "Juyeon's Just Jlog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "블로그 유저 닉네임"
-description              : "블로그 간단 설명"
+name                     : "젼__"
+description              : "log storage"
 url                      : "https://ye0ni.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "ye0ni/comments" #댓글 경로 / github name/repository
@@ -33,7 +33,7 @@ words_per_minute         : 200
 comments: # 블로그 댓글 활용
   provider               : "utterances" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname            : #"유저이름-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : #"ye0ni-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -134,7 +134,7 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/유저이름"
+      url: "https://github.com/ye0ni"
     #- label: "Twitter"
     #  icon: "fab fa-fw fa-twitter-square"
       # url:
