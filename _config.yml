@@ -22,7 +22,7 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : "젼__"
 description              : "log storage"
 url                      : "https://ye0ni.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+# baseurl                  : "Ye0ni.github.io/"
 repository               : "ye0ni/comments" #댓글 경로 / github name/repository
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/logo.png" # 타이틀 옆 로고
