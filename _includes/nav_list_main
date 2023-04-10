@@ -8,6 +8,14 @@
             📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
+        <span class="nav__sub-title">Certificate</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "Certificate" %}
+                    <li><a href="/categories/certificate" class="">정보처리산업기사({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <span class="nav__sub-title">etc</span>
             <ul>
                 {% for category in site.categories %}
